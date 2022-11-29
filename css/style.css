@@ -1,0 +1,1693 @@
+*,
+*::before,
+*::after {
+    /* include border and padding to element's total width and height */
+    box-sizing: border-box;
+}
+
+/*********************************** 
+    Custom properties
+********************************** */
+:root {
+    --font-family-primary: 'Titillium Web', sans-serif;;
+    --font-family-secondary: 'Koulen', 'cursive';
+
+    --font-weight-reg: 300;
+    --font-weight-bold: 700;
+
+    --color-light: #fff;
+    --color-dark: #303030;
+    --color-darker: #202020;
+    --color-accent: #967a2c;
+    --color-sec-accent: #f5ff6b;
+    --color-grey: #424242;
+
+    --color-logo-grad: linear-gradient(60deg, #967a2c, #f5ff6b);
+    
+    /* Fury Theme */
+    --bg-color-grad: #3f0d12;
+    --bg-sec-color-grad: #99041d;   
+    --bg-img-grad: linear-gradient(315deg, #99041d 24%, #531419 74%);
+    
+
+    /* Vibrant Sky Theme 
+    --bg-color--grad: #09090a;
+    --bg-sec-color-grad: #2a2a72;   
+    --bg-img-grad: linear-gradient(315deg, #2a2a72 24%, #006caa 74%); */
+    
+
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 1.7rem;
+    --font-size-h3: 1.3rem;
+    --font-size-body: 1rem;
+
+    --box-shadow-out: rgba(51, 51, 51, 0.16) 0px 3px 6px, rgba(37, 37, 37, 0.23) 0px 3px 6px;
+    --box-shadow-in: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(187, 187, 187, 0.3) 0px 18px 36px -18px inset;
+}
+/*********************************** 
+    Custom properties --- END
+********************************** */
+
+
+
+/*********************************** 
+    General styles
+********************************** */
+body {
+    background: black;
+    color: var(--color-light);
+    margin: 0;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-body);
+    line-height: 1;
+}
+
+/* all sections */
+section {
+    padding: 3em 2em;
+}
+
+img{
+    /* image to fit into parent and not excide it*/
+    max-width: 100%;
+}
+
+ul { list-style-type: none; }
+
+a { text-decoration: none; }
+
+/* fixed menu */
+header .nav-main { 
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.error {
+    background-color: var(--bg-sec-color-grad);
+    color: var(--color-light);
+    font-size: var(--font-size-h3);
+    text-transform: capitalize;
+    box-shadow: var(--box-shadow-in);
+    padding: 0;
+    margin: 3em 1em;
+    width: 100%;
+}
+
+.success {
+    background-color: green;
+    color: var(--color-light);
+    font-size: var(--font-size-h3);
+    text-transform: capitalize;
+    box-shadow: var(--box-shadow-in);
+    padding: 0;
+    margin: 3em 1em;
+    width: 100%;
+}
+
+#welcome-msg {
+    padding: 0.4em 1.5em;
+    box-shadow: var(--box-shadow-out);
+    font-size: var(--font-size-h3);
+    font-weight: bold;
+    display: none;
+    width: 30%;   
+    color: greenyellow;
+    /* animation: color-change 3s infinite; */
+}
+
+.required-field {
+    color: var(--color-sec-accent);
+}
+
+.upload-img {
+    align-items: center;
+    background-color: var(--color-darker);
+    font-size: var(--font-size-body);
+    padding: 2em;
+    width: 80%;
+    margin: 2em;
+}
+
+.upload-img form {
+    padding: 2em;
+}
+
+.upload-img form button {
+    color: var(--color-light);
+    background-color: var(--color-accent);
+    padding: 1em 2em;
+    border: 1px solic var(--color-sec-accent);
+}
+
+.upload-img form button:hover {
+    color: var(--color-light);
+    background-color: var(--bg-color-grad);
+    padding: 1em 2em;
+}
+
+/*********************************** 
+    General styles --- END
+********************************** */
+
+
+/*********************************** 
+    Typography 
+********************************** */
+h1, 
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+    font-family: var(--font-family-secondary);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+/*********************************** 
+    Typography --- END
+********************************** */
+
+/*********************************** 
+    Navigation
+********************************** */
+.navbar {
+    display: block;
+    color: var(--color-light);
+}
+
+.nav-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-dark);
+    padding: 0.3em 1em;
+
+    background-color: var(--bg-color-grad);
+    background-image: var(--bg-img-grad);
+}
+
+.nav-main .logo {
+    display: flex;
+}
+
+.nav-main .logo-img {
+    width: 70px;
+    height: auto;   
+    position: relative;
+    animation-name: logo-animation;
+    animation-duration: 1s;
+}
+
+@keyframes logo-animation {   
+    0%   { left:0px; top:0px;}
+    25%  { left:60px; top:0px;}
+    75%  { left:20px; top:40px;}
+    100% { left:0px; top:0px;}
+}
+
+.nav-main .logo-title {
+    padding: 0.2em 0.5em;
+    background-image: var(--color-logo-grad);
+    background-clip: text;
+    -webkit-background-clip: text; /* support for chrome based browsers */
+    color: transparent;
+   /* text-shadow: var(--text-shadow-logo); */
+}
+
+.intro .logo-title {
+    background-image: var(--color-logo-grad);
+    background-clip: text;
+    -webkit-background-clip: text; /* support for chrome based browsers */
+    color: transparent;
+    /* text-shadow: var(--text-shadow-logo); */
+}
+
+.nav-main .nav-list {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-main .nav-list a {
+    padding: 0.3em 0.5em;
+    margin: 0.5em;
+    color: var(--color-light);
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-h3);
+    transition: color 0.5s;
+}
+
+.nav-main .nav-list .nav-item .active {
+    border-bottom: 2px var(--color-light) solid;
+}
+
+.nav-main .nav-list a:hover {
+    color: var(--color-sec-accent);
+}
+
+.nav-main .nav-aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-aside .login .avatar .avatar-img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.nav-aside .login .login-btn {
+    padding: 0.2em 0em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin: 0em 1em;
+    margin-bottom: 1em;
+    background-color: var(--bg-sec-color-grad);
+    box-shadow: var(--box-shadow-out);
+    color: var(--color-light);
+    border: none;
+    cursor: pointer;
+}
+
+.nav-aside .login .login-btn:hover {
+    background-color: var(--color-dark);
+    box-shadow: var(--box-shadow-in);
+}
+
+/* 2nd nav for content */
+.nav-content {
+    display: flex;
+    justify-content: center;
+    padding: 0.2em;
+    margin-top: 95px;
+    background-color: var(--color-darker);
+}
+
+/********* Resposnive menu for mobile *********/
+.nav-main .hamburger-icon {
+    visibility: hidden;
+    padding: 0.5em;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links.
+ * Show the link that contains should open and close the topnav (.hamburger-icon) 
+ */
+@media screen and (max-width: 800px) {
+    .nav-main .nav-list .nav-item a, 
+    .login-container .login-form {
+        display: none;
+    }
+
+    .footer .social-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer .nav-main .nav-list .nav-item a {
+        display: block;
+    }
+
+    .nav-main {
+        align-items: center;
+    }
+
+    .nav-main .hamburger-icon {
+        visibility: visible;
+        display: block;
+        float: right;
+        margin-top: -1em;
+        color: var(--color-light);
+    }
+
+    .nav-main .logo {
+        display: block;
+        float: left;
+        align-items: center;
+    }
+
+    .navbar .nav-content {
+        margin-top: 8.5em;
+    }
+
+    .nav-main .nav-list .nav-item .active {
+        border: none;
+        color: var(--color-accent);
+    }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. 
+ * This class makes the topnav look good on small screens 
+ * (display the links vertically instead of horizontally) 
+ */
+@media screen and (max-width: 800px) {
+    .nav-main.responsive { position: relative; }
+    .nav-main.responsive .hamburger-icon {
+      position: absolute;
+      right: 20px;
+      top: 30px;
+    }
+
+    .nav-main.responsive   { 
+        margin: 0; padding: 0;
+        width: 100%;
+    }
+
+    .nav-main.responsive .nav-list  { 
+        float: none;
+        display: block;
+        margin: 0; padding: 1em;
+        width: 100%;
+        margin-top: 5em;
+        background-color: var(--bg-color-grad);
+    }
+
+    .nav-main.responsive .nav-list .nav-item a {
+        float: none;
+        display: block;
+        text-align: center;
+        padding: 0;
+    }
+
+    .nav-content.responsive {
+        margin-top: 0px;
+    }
+
+    .nav-aside.responsive {
+        background-color: var(--bg-color-grad);
+    }
+    
+  }
+/********* Resposnive menu for mobile --- END *********/
+
+/********** login form **********/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0; top: -10px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: var(--color-darker); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Full-width input fields */
+.modal .input-container input[type=text],
+.modal .input-container input[type=password] {
+    width: 100%;
+    padding: 1em 3em;
+    margin: 0.5em 1em;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+.modal button {
+    background-color: var(--color-dark);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-light);
+    margin: 1em;
+    padding: 1em 2em;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+.modal button:hover {
+    background-color: var(--color-accent);
+}
+
+/* Set background image opacity 
+   to affect only image and
+   not all child elements */
+.modal-content {
+    position: relative; 
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+    background-color: rgba(8, 4, 4, 0.705);
+}
+.modal-content::before {    
+    content: "";
+    background-image: url("../images/bg1.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px;  left: 0px;
+    opacity: 1;
+    z-index: -1;
+}
+ 
+/* Extra styles for the cancel button */
+.modal-content .cancelbtn {
+    width: auto;
+    padding: 1em 2em;
+    background-color: var(--color-darker);
+}
+  
+/* Center the image and position the close button */
+.modal-content .imgcontainer {
+    position: relative;
+    text-align: center;
+    margin: 1em;
+}
+  
+.modal-content .form-avatar-img {
+    width: 30%;
+    height: auto;
+    border-radius: 50%;
+}
+  
+.modal-content .input-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 1em 5em;
+}
+
+.modal-content .helper-container {   
+    background-color: var(--bg-sec-color-grad);
+    padding: 0.5em 2em;
+    
+}
+
+.modal-content .helper-container span a {   
+    color: var(--color-sec-accent);
+}
+
+.modal-content .input-container label {
+    color: var(--color-light);
+    font-weight: var(--font-weight-bold);
+    padding: 0em 1em;
+    width: 100%;
+}
+ 
+.modal-content span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+  /* The Close Button (x) */
+.modal-content .imgcontainer .close {
+    position: absolute;
+    right: 25px; top: 0;
+    color: var(--color-light);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+}
+  
+.modal-content .imgcontainer .close:hover,
+.modal-content .imgcontainer .close:focus {
+    color: var(--bg-sec-color-grad);
+    cursor: pointer;
+}
+  
+/* Add Zoom Animation */
+.modal .animate {
+    -webkit-animation: animatezoom 0.5s;
+    animation: animatezoom 0.5s;
+}
+  
+@-webkit-keyframes animatezoom {
+    from { -webkit-transform: scale(0); } 
+    to { -webkit-transform: scale(1); }
+}
+    
+@keyframes animatezoom {
+    from { transform: scale(0); } 
+    to { transform: scale(1); }
+}
+  
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 570px) {
+    .modal-content span.psw {
+       display: block;
+       float: none;
+    }
+
+    .modal-content {
+        width: 90%; 
+    }
+}
+/********** login form --- END **********/
+
+
+/*********************************** 
+    Navigation --- END
+********************************** */
+
+
+/*********************************** 
+    dropdown menu
+********************************** */
+.dropbtn {
+    background-color: var(--color-darker);
+    color: var(--color-light);
+    min-width: 160px;
+    padding: 0.8em 2em;
+    font-size: var(--font-size-body);
+    border: none;
+}
+
+/* dropdown btn links */
+.dropbtn a {
+    color: var(--color-light);
+    width: 100%;
+}
+
+.dropbtn a:hover {
+    color: var(--color-sec-accent);
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-dark);
+    min-width: 200px;
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: var(--color-light);
+    padding: 0.8em 3em;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover { background-color: var(--color-accent); }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content { display: block; }
+
+/*********************************** 
+    dropdown menu --- END 
+********************************** */
+
+/*********************************** 
+    Introduction
+********************************** */
+.intro {
+    position: relative;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    overflow: hidden;
+}
+
+/* put text inside( or on top) of element */
+.section-title_intro {
+    position: absolute;
+    top: 42%;
+    left: 60%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+
+/* put text inside( or on top) of element */
+.section-subtitle_intro {
+    position: absolute;
+    top: 47%;
+    left: 60%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-bold);
+    animation: color-change 2.5s;
+}
+
+@keyframes color-change {
+    0% { color: var(--color-sec-accent); }
+    25% {color: rgb(255, 255, 122); }
+    50% { color: rgb(49, 49, 255); }
+    75% { color: var(--color-light);}
+    100% { color: rgb(255, 32, 32); }
+}
+
+.intro .dropdown {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-bold);
+}
+
+.intro .dropdown-content {
+    padding: 0.5em 0em;
+}
+
+.intro .dropdown .sys-info {
+    background-color: var(--color-darker);
+    color: var(--color-light);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-bold);
+    padding: 0.5em;
+    width: 100%;
+    border: 1px solid var(--color-sec-accent);
+}
+
+.intro .dropdown .sys-info:hover {
+    background-color: var(--color-accent);
+}
+
+select {
+    width: 100%;
+    min-width: 15ch;
+    border: 1px solid var(--color-grey);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: var(--font-size-body);
+    cursor: pointer;
+}
+
+.intro .dropdown .dropdown-content {
+    background-color: var(--color-darker);
+    line-height: 1;
+    padding: 0.2em;
+}
+
+.select-list {
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-h3);
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    background-image: 
+      linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet, red); 
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    animation: rainbow-animation 650s linear infinite;
+}
+   
+@keyframes rainbow-animation {
+    to {
+        background-position: 4500vh;
+    }
+}
+
+.intro .dropdown .dropbtn {
+    background-color: transparent;
+}
+
+.intro .dropdown .dropbtn .fa-gear {
+    font-size: var(--font-size-h2);
+}
+
+.diagonal-bg {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    left: 20%;
+    top: -100%;   
+    opacity: 0.7;
+    transform: translate(-50%, -50%);
+    transform: skewY(-55deg);    
+    z-index: 0;
+    background-color: var(--bg-color-grad);
+    background-image: var(--bg-img-grad);
+}
+
+.intro-image {
+    width: 100%;
+    height: 500px;
+    mix-blend-mode: overlay;
+}
+/*********************************** 
+    Introduction --- END
+********************************** */
+
+/*********************************** 
+    Register 
+********************************** */
+
+/* Set background image opacity 
+   to affect only image and
+   not all child elements */
+.register-form {
+    display: flex;
+    position: relative; 
+    width: 100%; height: 100%;
+    color: var(--color-light);
+    background-color: rgba(8, 4, 4, 0.705);
+}
+
+.register-form::before {    
+    content: "";
+    background-image: url("../images/bg1.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px;  left: 0px;
+    opacity: 1;
+    z-index: -1;
+}
+
+.register-form .intro {
+    width: 45%;
+    height: 100%;
+}
+
+.register-form .intro-image {
+    height: 1200px;
+    mix-blend-mode: multiply;
+}
+
+.register-form .form-avatar-img {
+    width: 30%;
+    height: auto;
+    border-radius: 50%;
+    align-self: center;
+}
+  
+.register-form .form-container {
+    margin-left: 2em;
+    margin-top: 10em;
+    height: 1200px;
+    width: 50%;
+}
+
+/* Add padding to containers */
+.register-form .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    background: rgb(0,26,80);
+    background: linear-gradient(90deg, rgba(0,26,80,1) 0%, rgba(5,76,181,1) 60%, rgba(27, 1, 68, 0.705) 100%)
+}
+
+/* Full-width input fields */
+.register-form input[type=text],
+.register-form input[type=password] {
+  width: 65%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.register-form .name {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+}
+
+.register-form .name input[type=text] {
+    padding: 1.2em 4em;
+    margin: 2em;
+}
+
+.register-form .gender {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+    margin-top: 0;
+    padding: 0.5em 1em;
+    font-size: var(--font-size-h3);
+}
+
+.register-form input[type=text]:focus,
+.register-form input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+.register-form hr {
+  border: 0.5px solid var(--color-dark);
+}
+
+/* Set a style for the submit button */
+.register-form .registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 70%;
+  opacity: 0.9;
+}
+
+.register-form .registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+.register-form a {
+  color: var(--color-sec-accent);
+}
+
+.register-form .home {
+    border: 1px solid var(--color-accent);
+    padding: 0.4em 1em;
+    font-size: var(--font-size-body);
+    color: var(--color-light);
+    background-color: var(--color-darker);
+}
+
+.register-form .home:hover {
+    background-color: var(--bg-color-grad);
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.register-form .signin {
+    background: rgb(0,13,41);
+    background: linear-gradient(90deg, rgba(0,13,41,1) 0%, rgba(0,0,0,1) 58%, rgb(1, 0, 8) 100%);
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    flex-direction: row;
+}
+
+/*********************************** 
+    Register --- END
+********************************** */
+
+
+/*********************************** 
+    About Game
+********************************** */
+.about-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-darker);
+    width: 100%;
+    height: 600px;
+    padding: 3em;
+    box-shadow: var(--box-shadow-in);
+}
+
+.about-game iframe {
+   width: 70%; height: 100%;
+   box-shadow: var(--box-shadow-out);
+}
+
+.about-game-content-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    width: 80%;
+}
+
+.about-game-content-container .game-logo {
+    display: flex;
+    align-items: center;
+}
+
+.game-logo .game-logo-img {
+    width: 80px;
+    height: auto;    
+    padding-right: 1em;
+}
+
+.about-game-content-container .content {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-bold);
+    font-style: italic;
+    word-wrap: break-word;
+    margin-bottom: 1em;
+    margin-right: 0.5em;
+    line-height: 1.1;
+    padding: 1em 0em;
+}
+
+.about-game-content-container .read-more {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-light);
+    border: 1px white solid;
+    padding: 0.5em;
+}
+
+/* Set background image opacity 
+   to affect only image and
+   not all child elements */
+.gtav-about-game {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(8, 4, 4, 0.63);
+}
+.gtav-about-game::before {    
+    content: "";
+    background-image: url("../images/gtav/gtav-bg.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px; left: 0px;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* Set background image opacity 
+   to affect only image and
+   not all child elements */
+.ac-about-game {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(8, 4, 4, 0.63);
+}
+.ac-about-game::before {    
+    content: "";
+    background-image: url("../images/assassins-creed/ac-caption-2.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px;  left: 0px;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* Set background image opacity 
+   to affect only image and
+   not all child elements */
+.tf2-about-game {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(8, 4, 4, 0.63);
+}
+.tf2-about-game::before {    
+    content: "";
+    background-image: url("../images/tf2/tf2-caption.jpeg");
+    background-size: cover;
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px; left: 0px; opacity: 0.6;
+    z-index: -1;
+}
+/*********************************** 
+    About Game --- END
+********************************** */
+
+
+
+/*********************************** 
+    Gallery 
+********************************** */
+
+.gallery {
+    display: flex;
+    align-items: center; 
+    background-color: var(--color-darker);
+    margin: 1em;
+    padding: 3em;
+}
+
+.gallery img {
+    width: 160px;
+    height: 110px;
+    padding: 0.5em 0.2em;
+}
+
+.gallery .img-caption {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery .img-list {
+    display: grid; 
+    grid-template-columns: auto;
+    margin-left: 2em;
+}
+
+.gallery a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    margin: 0.2em;
+}
+  
+.gallery .prev-container a:hover {
+    background-color: var(--color-grey);
+    color: var(--color-light);
+    transform: scale(1);
+}
+
+.gallery .next-container a:hover {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    transform: scale(1);
+}
+  
+.gallery .prev-container .previous {
+    background-color: var(--color-light);
+    color: var(--color-darker);
+}
+  
+.gallery  .next-container .next {
+    background-color: var(--color-light);
+    color: var(--color-darker);
+}
+  
+.gallery .round {
+    border-radius: 50%;
+}
+
+/*********************************** 
+    Gallery --- END  
+********************************** */
+
+
+
+/*********************************** 
+    GamePlay
+********************************** */
+
+.gallery-gameplay {
+    background-color: var(--color-darker);
+    margin-top: 2em;
+}
+
+.gallery-gameplay-title {
+    font-size: var(--font-size-h3);
+}
+
+.gallery-gameplay-subtitle {
+    font-size: var(--font-size-h3);
+    margin: 2em;
+}
+
+
+/*********************************** 
+    GamePlay --- End
+********************************** */
+
+/*********************************** 
+    Ratings Table    
+********************************** */
+.ratings {
+    background-color: var(--color-darker);
+    margin-top: 2em;
+}
+
+.ratings-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ratings-table .table-title {
+    /* center the elememt */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1em;
+}
+
+.ratings-table .rating {
+    text-align: center;
+}
+
+.ratings-table .rating .comment {
+    font-style: italic;
+}
+
+.ratings-table .rating .star-list .checked {
+    color: orange;
+}
+
+.ratings-table .rating .reviews a {
+    color: var(--color-light);
+    text-decoration: underline;
+}
+
+.header-list th {
+    padding-top: 2em;
+    padding-bottom: 12em;
+    text-align: center;
+    background-color: var(--bg-color-grad);
+    color: var(--color-light);
+  }
+
+.header-list th, .rating td {
+    border: 1px var(--color-grey) solid;
+    padding: 1em;
+}
+
+/*********************************** 
+    Ratings Table --- END     
+********************************** */
+
+/*********************************** 
+    Contact Us Page   
+********************************** */
+
+.about-us {
+    position: relative; 
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.63);
+}
+.about-us::before {    
+    content: "";
+    background-image: url("../images/about-us.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px;left: 0px;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+    padding: 4em;
+    background-color: var(--color-darker);
+}
+  
+.flex-container>.card {
+    color: var(--color-light);
+    background-color: var(--bg-sec-color-grad);
+    margin: 1em;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.form-title {
+    color: var(--color-light); 
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.form-subtitle {
+    text-align: center;
+}
+  
+.legend-contact, .legend-prize {
+    font-size: var(--font-size-h3);
+    color: var(--color-sec-accent);
+}
+  
+.fieldset-contact, .fieldset-prize {
+    border: 2px var(--color-grey) solid;
+    border-radius: 10px;
+}
+  
+.card .text {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 1em;
+    font-weight: var(--font-weight-reg);
+    letter-spacing: 2px;
+    opacity: 0;
+    color: var(--color-light);
+    max-height: 0;
+    transition: all 0.3s ease;
+}
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    height: 220px;
+}
+  
+.card:hover .text {
+    transition: all 0.3s ease;
+    opacity: 1;
+    max-height: 40px;
+    padding: 2px 16px;
+}
+  
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+  
+hr {
+    width: 50%;
+    float: left;
+    border: 1px solid var(--color-grey);
+}
+.contact input[type=text], input[type="email"], input[type="tel"] {
+    padding: 0.7em 1em;
+    margin: 0.2em;
+    border: none;
+    width:200px;  
+}
+ 
+.prize input[type=text], input[type="email"], input[type="tel"] {
+    padding: 0.7em 1em;
+    margin: 0.2em;
+    border: none;
+    width:200px;
+}
+
+.contact,
+.prize {
+    position: relative;
+    margin: auto;
+    width: 60%;
+    background-color: black;
+    color: white;
+    z-index: 1;
+}
+  
+.contact:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background: url("../images/intro.jpg");
+    background-size: cover;
+    opacity: .27;
+  
+}
+  
+.prize:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background: url("../images/gtav/gtav-bg.jpg");
+    background-size: cover;
+    opacity: .27;
+  
+}
+  
+.form-align * {
+    vertical-align: top;
+}
+  
+.submit {
+    width: 200px;
+    height: 50px;
+    background: var(--color-grey);
+    font-size: var(--font-size-h3);
+    border-radius: 40px;
+    text-align: center;
+    color: var(--color-light);
+    transition: all 0.3s ease;
+    box-shadow: 1px 1px gray;
+}
+  
+.submit:hover {
+    cursor: pointer;
+    font-size: 150%;
+    background-color: var(--color-accent);
+}
+
+#present {
+    color: var(--color-light); 
+    margin-bottom: 0.5em;
+    text-align: center;
+    
+    animation: spin 1s infinite linear;
+    animation-direction: alternate;
+}
+.activated {
+    font-size: 150px;
+
+}
+
+@keyframes spin {
+    from {
+      transform: rotate(-30deg);
+    }
+    to {
+      transform: rotate(30deg);
+    }
+}
+
+/*********************************** 
+    Contact Us Page --- END 
+********************************** */
+
+/*********************************** 
+    About Us Page 
+********************************** */
+
+/* Set background image opacity 
+   to affect only image and
+   not all child elements */
+   .contact-us {
+    position: relative; 
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.63);
+}
+.contact-us::before {    
+    content: "";
+    background-image: url("../images/contact-us.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px;left: 0px;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* set card width and height */
+.all-cards {
+    display: flex;
+    justify-content: center;
+}
+
+.card-container .profile-img{
+    width: 100%;
+    height: 260px;
+}
+
+.card-container .profile-name {
+    padding: 0.5em;
+}
+
+.card-container .profile-skills {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-body);
+    text-transform: none;
+    padding: 0.5em;
+}
+
+.card-container, .front, .back {
+	width: 20rem;
+	height: 20rem;
+}
+
+.card-container {
+	margin: 5rem;
+}
+
+.back {
+    display: flex;
+    align-items: center;
+}
+
+.front, .back {
+	box-sizing: border-box;
+    padding: 0;
+	border-radius: 4px;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .25);
+
+	font-size: var(--font-size-h2);
+	color: var(--color-light);
+	text-transform: uppercase;
+	text-align: center;
+}
+/* front side bg is green gradient */ 
+.front {
+	background-image: var(--bg-img-grad);
+}
+/* back side bg is orange gradient */ 
+.back {
+	background-image: linear-gradient(60deg, #a58630bd, #f1ff31b2);
+}
+
+.card-container {
+	position: relative;
+}
+
+/* each side is for every card, e.g. afront is for the front of 'anils card' */
+.front, .back{
+	position: absolute;
+	top: 0;
+	left: 0;
+	backface-visibility: hidden;
+	overflow: hidden;
+	transition: transform .8s ease;
+}
+
+.back {
+	transform: rotateY(180deg);
+}
+
+.card-container {
+	perspective: 75rem;
+}
+
+/* function for js method frontFlip*/
+.card-frontflip {
+    transform: rotateY(-180deg);
+}
+
+/* function for js method frontFlip*/
+.card-backflip {
+    transform: rotateY(0deg);
+}
+/*********************************** 
+    About Us Page --- END 
+********************************** */
+
+/*********************************** 
+    About Us Page --- END 
+********************************** */
+
+
+/*********************************** 
+    footer    
+********************************** */
+
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 1em;
+}
+
+.footer .nav-main {
+    padding: 0.2em 0.5em;
+}
+
+.footer .nav-main .nav-list a {
+    font-weight: var(--font-weight-reg);
+    font-size: var(--font-size-body);
+}
+
+.footer .nav-main .title-copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .nav-main .logo-title {
+    font-weight: var(--font-weight-reg);
+}
+
+.footer .social .social-list {
+    display: flex;
+}
+
+.footer .social .social-list a {
+    color: var(--color-light);
+    font-size: var(--font-size-h3);
+    padding: 1em;
+}
+
+.fa-github:hover {  color: #000000; }
+
+.fa-facebook:hover { color: #1773EA; }
+
+.fa-instagram:hover { color: #B32E87; }
+
+.fa-twitter:hover { color: #1C9CEA; }
+
+/*********************************** 
+    footer --- END   
+********************************** */
+
+
+
+/*********************************** 
+    responsive design 
+********************************** */
+
+/* 
+ * TODO: Responsive queries
+
+@media (min-width: 640px) { body {font-size:1rem;} }
+@media (min-width:960px) { body {font-size:1.2rem;} }
+@media (min-width:1100px) { body {font-size:1.5rem;} } 
+
+*/
+
+@media (max-width: 800px) {
+    /*********************************** 
+        Navigation
+    ********************************** */
+    .nav-main {
+        display: block;
+    }
+
+    .nav-main .logo {
+        display: flex;
+    }
+
+    /* 2nd nav for content */
+    .nav-content {
+        display: flex;
+        justify-content: center;
+        padding: 0.2em;
+        margin-top: 192px;
+        background-color: var(--color-darker);
+    }
+    /*********************************** 
+        Navigation --- END
+    ********************************** */
+
+    /*********************************** 
+        About Game
+    ********************************** */
+
+    .about-game {
+        display: block;
+        align-items: center;
+        height: 100%;
+    }
+
+    .about-game iframe {
+    width: 100%; height: 100%;
+    box-shadow: var(--box-shadow-out);
+    }
+
+    .about-game-content-container {
+        display: block;
+        padding: 1em;
+        width: 100%;
+    }
+
+    .about-game-content-container .game-logo {
+        display: block;
+    }
+
+    .game-logo .game-logo-img {
+        width: 80px;
+        height: auto;    
+        padding-right: 1em;
+    }
+
+    .about-game-content-container .content {
+        float: left;
+        font-size: var(--font-size-body);
+        font-weight: var(--font-weight-bold);
+        font-style: italic;
+        word-wrap: break-word;
+        margin-bottom: 1em;
+        margin-right: 0.5em;
+        line-height: 1.1;
+        padding: 1em 0;
+    }
+
+    /*********************************** 
+        About Game --- END
+    ********************************** */
+
+        
+    /*********************************** 
+        Introduction
+    ********************************** */
+    .intro {
+        position: relative;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-dark);
+        color: var(--color-light);
+        overflow: hidden;
+    }
+
+    .section-title_intro {
+        font-size: var(--font-size-h2);
+    }
+    
+    .section-subtitle_intro {
+        position: absolute;
+        top: 60%;
+        left: 60%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+        font-size: var(--font-size-body);
+        font-weight: var(--font-weight-bold);
+    }
+    /*********************************** 
+        Introduction --- END
+    ********************************** */
+
+    /*********************************** 
+        Gallery 
+    ********************************** */
+
+    .gallery {
+        display: block;
+        align-items: center;
+    }
+
+    /*********************************** 
+        Gallery --- END  
+    ********************************** */
+
+    .flex-container {
+        display: block;
+        width: 100%;
+    }
+      
+    .flex-container>.card {
+        width: 100%;
+    }
+
+    /* set card width and height */
+    .all-cards {
+        display: block;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+}
+
+
+/* Increase font on bigger screens */
+@media (min-width: 900px) {
+    :root {
+        --font-size-h1: 3.5rem;
+        --font-size-h2: 2.5rem;
+        --font-size-h3: 1.5rem;
+        --font-size-body: 1.12rem; 
+    }
+}
+
+/*********************************** 
+    responsive design --- END
+********************************** */
