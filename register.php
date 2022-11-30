@@ -1,4 +1,4 @@
-<?php require('./server/app.php'); ?>
+<?php // require('./server/app.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,7 @@
    <div class="navbar">
 	<!-- Login form -->
 	<div id="form_container" class="modal">
-		<form id="login_form" name="login" class="modal-content animate" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+		<form id="login_form" name="login" class="modal-content animate" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 			<!-- close button -->
 			<div class="imgcontainer">
 				<span onclick="closeForm()" class="close" title="Close Modal">&times;</span>
@@ -38,10 +38,10 @@
 			<!-- input fields -->
 			<div class="input-container">
 				<label for="uname"><b>Username</b></label>
-				<input id="username_input" type="text" placeholder="Enter Username" name="username" value="<?php echo $username; ?>">
+				<input id="username_input" type="text" placeholder="Enter Username" name="username" value="<?php // echo $username; ?>">
 
 				<label for="psw"><b>Password</b></label>
-				<input id="password_input" type="password" placeholder="Enter Password" name="psw" value="<?php echo $password; ?>">
+				<input id="password_input" type="password" placeholder="Enter Password" name="psw" value="<?php // echo $password; ?>">
 					
 				<button id="login" name="submitLogin" value="Register" type="submit" >Log in</button>
 				<label>
@@ -49,7 +49,7 @@
 					Remember Me
 				</label>
 
-				<h3 class="required-field"><?php echo $loginFormErr; ?></h3>
+				<h3 class="required-field"><?php // echo $loginFormErr; ?></h3>
 
 				
 			</div>
@@ -66,7 +66,7 @@
 </header>
 
 <body>
-    <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+    <form class="register-form" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 
 		<!-- Introduction -->
 		<div class="intro">
@@ -93,13 +93,13 @@
 				<!-- Input fields -->
 				<hr>
 				<div class="name">
-					<input placeholder="First Name" type="text" name="fname" id="name" value="<?php echo $fname; ?>">
-                    <input placeholder="Last Name" type="text" name="surname" id="surname" value="<?php echo $surname ?>">
+					<input placeholder="First Name" type="text" name="fname" id="name" value="<?php // echo $fname; ?>">
+                    <input placeholder="Last Name" type="text" name="surname" id="surname" value="<?php // echo $surname; ?>">
 				</div>
 
 				<!-- Username and email -->
-				<input placeholder="Email" type="text" name="email" id="email" value="<?php echo $email; ?>">
-				<input type="text" placeholder="Username" name="username" id="username" value="<?php echo $username; ?>">
+				<input placeholder="Email" type="text" name="email" id="email" value="<?php // echo $email; ?>">
+				<input type="text" placeholder="Username" name="username" id="username" value="<?php // echo $username; ?>">
 
 				<!-- Gender -->
 				<div class="gender">
@@ -119,11 +119,11 @@
 					</div>
 				</div>
 
-				<input type="password" placeholder="Enter Password" name="psw" id="psw" value="<?php echo $password; ?>">
-				<input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" value="<?php echo $passwordRepeat; ?>">
+				<input type="password" placeholder="Enter Password" name="psw" id="psw" value="<?php // echo $password; ?>">
+				<input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" value="<?php // echo $passwordRepeat; ?>">
 				<hr>
 
-				<h3 class="required-field"><?php echo $registerFormErr; ?></h3>
+				<h3 class="required-field"><?php // echo $registerFormErr; ?></h3>
 
 				<p >By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 			
