@@ -190,7 +190,12 @@ h3 { font-size: var(--font-size-h3); }
     background-image: var(--bg-img-grad);
 }
 
-.nav-main .logo {
+.logo-link {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-main {
     display: flex;
 }
 
@@ -324,7 +329,7 @@ h3 { font-size: var(--font-size-h3); }
         color: var(--color-light);
     }
 
-    .nav-main .logo {
+    .nav-main {
         display: block;
         float: left;
         align-items: center;
