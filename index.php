@@ -86,25 +86,8 @@
             </h1>
             <p class="section-subtitle section-subtitle_intro">Find the latest info on your favourite games</p>
 
-            <div class="dropdown">
-                <button class="dropbtn">
-                    <i class="fa fa-gear fa-spin" ></i>
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                
-                <div class="dropdown-content">
-                    <button id="sys_info" class="sys-info" >System Info</button>
-                    <div class="settings">
-                        <div class="custom-select">
-                            <select id="theme_list" class="select-list">
-                                <option class="select-item" value="0">Theme:</option>
-                                <option class="select-item" value="1">Fury</option>
-                                <option class="select-item" value="2">Vibrant Sky</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Dropdown Theme Menu Component -->
+            <?php require("components/theme.menu.inc.php"); ?> 
 
             <div class="diagonal-bg"></div>
         </section>
@@ -396,34 +379,36 @@
         // $db->status declared in php file
         var connStatus = <?= json_encode($db->status) ?>;
 
-        // dispplay status
-        var welcomeMsg = document.getElementById("welcome-msg");
-        welcomeMsg.innerHTML = connStatus + "<br>";
-        welcomeMsg.style.display = "block";
+        if (connStatus != null) {
+            // dispplay status
+            var welcomeMsg = document.getElementById("welcome-msg");
+            welcomeMsg.innerHTML = connStatus + "<br>";
+            welcomeMsg.style.display = "block";
 
-        setTimeout(function(){ 
-            welcomeMsg.style.display = "none";
-        }, 7000); // timeout for status message
+            setTimeout(function(){ 
+                welcomeMsg.style.display = "none";
+            }, 7000); // timeout for status message
 
-		var displayForm = <?= json_encode($displayForm) ?>;
-		if (displayForm) {
-			document.getElementById("form_container").style.display = 'block';
-		}
+            var displayForm = <?= json_encode($displayForm) ?>;
+            if (displayForm) {
+                document.getElementById("form_container").style.display = 'block';
+            }
 
-		var isValidUser = <?= json_encode($isValidUser) ?>;
-		var username = <?= json_encode($username) ?>;
+            var isValidUser = <?= json_encode($isValidUser) ?>;
+            var username = <?= json_encode($username) ?>;
 
-		if (isValidUser) {
-            // window.location.replace("index.php"); // redirect to main page
-			document.getElementById("user_btn_text").textContent = username;
+            if (isValidUser) {
+                // window.location.replace("index.php"); // redirect to main page
+                document.getElementById("user_btn_text").textContent = username;
 
-			welcomeMsg.innerHTML = "Welcome " + validUsername;
-			welcomeMsg.style.display = "block";
+                welcomeMsg.innerHTML = "Welcome " + validUsername;
+                welcomeMsg.style.display = "block";
 
-			setTimeout(function(){ 
-				welcomeMsg.style.display = "none";
-			}, 7000); // timeout for welcome message
-		}
+                setTimeout(function(){ 
+                    welcomeMsg.style.display = "none";
+                }, 7000); // timeout for welcome message
+            }
+        }
 
     </script>
 
