@@ -689,12 +689,7 @@ select {
     font-size: var(--font-size-h3);
     background-color: var(--color-dark);
     color: var(--color-light);
-    background-image: 
-      linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet, red); 
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;  
-    animation: rainbow-animation 650s linear infinite;
+    font-weight: light;
 }
    
 @keyframes rainbow-animation {
