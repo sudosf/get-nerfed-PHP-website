@@ -8,77 +8,61 @@
 
 <body>
     <header>
-   <!-- Nav section-->
-   <div class="navbar">
-        <nav class="nav-main" id="navMain">
-            <div class="logo">
-                <img class="logo-img" src="images/icons/logo1.png" alt="logo image">
-                <h1 class="logo-title" >get nerfed!</h1>
-            </div>
+        <!-- Nav section-->
+        <div class="navbar">
+            <nav class="nav-main" id="navMain">
+                <!-- Logo Component -->
+                <?php require("components/head.inc.php"); ?>
 
-            <!-- Navbar -->
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                <li class="nav-item"><a class="nav-link active" href="contact.php">Contact us</a></li>
-            </ul>
-            
-            <div class="nav-aside" id="navAside">
-                <!-- Login -->
-                <div class="login">
-                    <button  class="login-btn" type="submit" onclick="displayLoginForm()">
-                        <a href="#" class="avatar">
-                            <img src="images/icons/img_avatar.png" alt="Avatar" class="avatar-img">
-                        </a> 
-                        &nbsp; <div id="user_btn_text">Login</div>
-                    </button>
-                </div>
+                <!-- Navbar -->
+                <ul class="nav-list">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.php">Contact us</a></li>
+                </ul>
                 
-                <a href="javascript:void(0);" class="hamburger-icon" onclick="toggleMobileMenu()">
-                    <i class="fa fa-bars"></i>
-                </a>
+                <!-- Login Button Component -->
+                <?php require("components/login.btn.inc.php"); ?>         
+                
+            </nav>
 
-            </div>   
-            
-        </nav>
+            <!-- Login form -->
+            <div id="form_container" class="modal">
+                <form id="login_form" name="login" class="modal-content animate" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                    <!-- close button -->
+                    <div class="imgcontainer">
+                        <span onclick="closeForm()" class="close" title="Close Modal">&times;</span>
+                        <img src="images/icons/img_avatar.png" alt="Avatar" class="form-avatar-img">
+                    </div>
 
-        <!-- Login form -->
-        <div id="form_container" class="modal">
-            <form id="login_form" name="login" class="modal-content animate" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                <!-- close button -->
-                <div class="imgcontainer">
-                    <span onclick="closeForm()" class="close" title="Close Modal">&times;</span>
-                    <img src="images/icons/img_avatar.png" alt="Avatar" class="form-avatar-img">
-                </div>
+                    <!-- input fields -->
+                    <div class="input-container">
+                        <label for="uname"><b>Username</b></label>
+                        <input id="username_input" type="text" placeholder="Enter Username" name="username" value="<?php // echo $username; ?>">
 
-                <!-- input fields -->
-                <div class="input-container">
-                    <label for="uname"><b>Username</b></label>
-                    <input id="username_input" type="text" placeholder="Enter Username" name="username" value="<?php // echo $username; ?>">
+                        <label for="psw"><b>Password</b></label>
+                        <input id="password_input" type="password" placeholder="Enter Password" name="psw" value="<?php // echo $password; ?>">
+                            
+                        <button id="login" name="submitLogin" value="Register" type="submit" >Log in</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember">
+                            Remember Me
+                        </label>
 
-                    <label for="psw"><b>Password</b></label>
-                    <input id="password_input" type="password" placeholder="Enter Password" name="psw" value="<?php // echo $password; ?>">
+                        <h3 class="required-field"><?php // echo $loginFormErr; ?></h3>
+
                         
-                    <button id="login" name="submitLogin" value="Register" type="submit" >Log in</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember">
-                        Remember Me
-                    </label>
+                    </div>
 
-                    <h3 class="required-field"><?php // echo $loginFormErr; ?></h3>
-
-                    
-                </div>
-
-                <!-- form footer -->
-                <div class="helper-container">
-                    <button type="button" onclick="closeForm()" class="cancelbtn">Cancel</button>
-                    <span class="register-btn"><a href="register.php">Register</a></span>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
-        </div>
-   </div> <!-- </ Nav section > -->
+                    <!-- form footer -->
+                    <div class="helper-container">
+                        <button type="button" onclick="closeForm()" class="cancelbtn">Cancel</button>
+                        <span class="register-btn"><a href="register.php">Register</a></span>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>
+                </form>
+            </div>
+        </div> <!-- </ Nav section > -->
     </header>
 
     <main class="contact-us">

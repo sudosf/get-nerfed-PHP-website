@@ -11,10 +11,8 @@
         <!-- Nav section-->
         <div class="navbar">
             <nav class="nav-main" id="navMain">
-                <div class="logo">
-                    <img class="logo-img" src="images/icons/logo1.png" alt="logo image">
-                    <h1 class="logo-title" >get nerfed!</h1>
-                </div>
+                <!-- Logo Component -->
+                <?php require("components/head.inc.php"); ?>
 
                 <!-- Navbar -->
                 <ul class="nav-list">
@@ -23,22 +21,8 @@
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact us</a></li>
                 </ul>
                 
-                <div class="nav-aside" id="navAside">
-                    <!-- Login button -->
-                    <div class="login">
-                        <button  class="login-btn" type="submit" onclick="displayLoginForm()">
-                            <a href="#" class="avatar">
-                                <img src="images/icons/img_avatar.png" alt="Avatar" class="avatar-img">
-                            </a> 
-                            &nbsp; <div id="user_btn_text">Login</div>
-                        </button>
-                    </div>
-                    
-                    <a href="javascript:void(0);" class="hamburger-icon" onclick="toggleMobileMenu()">
-                        <i class="fa fa-bars"></i>
-                    </a>
-
-                </div>   
+                <!-- Login Button Component -->
+                <?php require("components/login.btn.inc.php"); ?>       
                 
             </nav>
 
