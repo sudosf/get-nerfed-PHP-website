@@ -1,4 +1,4 @@
-<?php require('./server/app.php'); ?>
+<?php // require('./server/app.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +66,7 @@
 
         <!-- Login form -->
         <div id="form_container" class="modal">
-            <form id="login_form" name="login" class="modal-content animate" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            <form id="login_form" name="login" class="modal-content animate" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <!-- close button -->
                 <div class="imgcontainer">
                     <span onclick="closeForm()" class="close" title="Close Modal">&times;</span>
@@ -76,10 +76,10 @@
                 <!-- input fields -->
                 <div class="input-container">
                     <label for="uname"><b>Username</b></label>
-                    <input id="username_input" type="text" placeholder="Enter Username" name="username" value="<?php echo $username; ?>">
+                    <input id="username_input" type="text" placeholder="Enter Username" name="username" value="<?php // echo $username; ?>">
 
                     <label for="psw"><b>Password</b></label>
-                    <input id="password_input" type="password" placeholder="Enter Password" name="psw" value="<?php echo $password; ?>">
+                    <input id="password_input" type="password" placeholder="Enter Password" name="psw" value="<?php // echo $password; ?>">
                         
                     <button id="login" name="submitLogin" value="Register" type="submit" >Log in</button>
                     <label>
@@ -87,7 +87,7 @@
                         Remember Me
                     </label>
 
-                    <h3 class="required-field"><?php echo $loginFormErr; ?></h3>
+                    <h3 class="required-field"><?php // echo $loginFormErr; ?></h3>
 
                     
                 </div>
@@ -180,7 +180,7 @@
             </p>
 
             <!-- Contact form -->
-            <form name="contact" class="contact" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            <form name="contact" class="contact" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <fieldset class="fieldset-contact">
                     <!-- form title -->
                     <legend class="legend-contact">
@@ -191,19 +191,19 @@
 
                     <!-- first name input -->
                     <label for="name">Name</label>
-                    <input placeholder="First Name" type="text" name="fname" id="name" value="<?php echo $fname; ?>">
-                    <span class="error-form required-field">* <?php echo $fnameErr; ?></span>
+                    <input placeholder="First Name" type="text" name="fname" id="name" value="<?php // echo $fname; ?>">
+                    <span class="error-form required-field">* <?php // echo $fnameErr; ?></span>
                    
                     <!-- surname input -->
                     <label for="surname"></label>
-                    <input placeholder="Last Name" type="text" name="surname" id="surname" value="<?php echo $surname ?>">
-                    <span class="error-form required-field">* <?php echo $surnameErr ;?></span>
+                    <input placeholder="Last Name" type="text" name="surname" id="surname" value="<?php // echo $surname ?>">
+                    <span class="error-form required-field">* <?php // echo $surnameErr ;?></span>
                     <br><br>
 
                     <!-- email input -->
                     <label for="email">Email</label>
-                    <input placeholder="e.g. rhodesCS3@gmail.com" type="text" name="email" id="email" value="<?php echo $email; ?>">
-                    <span class="error-form required-field">* <?php echo $emailErr; ?></span>
+                    <input placeholder="e.g. rhodesCS3@gmail.com" type="text" name="email" id="email" value="<?php // echo $email; ?>">
+                    <span class="error-form required-field">* <?php // echo $emailErr; ?></span>
                     <br><br>
 
                     <!-- suject option list -->
@@ -219,14 +219,14 @@
 
                     <!-- user/customer message field -->
                     <div class="form-align"><label for="message">Message</label>
-                        <textarea name="message" id="message" cols="30" rows="10"><?php echo $message; ?></textarea>
+                        <textarea name="message" id="message" cols="30" rows="10"><?php // echo $message; ?></textarea>
                     </div>
-                    <span class="error-form required-field">* <?php echo $messageErr; ?></span>
+                    <span class="error-form required-field">* <?php // echo $messageErr; ?></span>
                     
                     <br><br>
-                    <span class="error"><?php echo $contactFormErr; ?></span>
+                    <span class="error"><?php // echo $contactFormErr; ?></span>
                     <br><br>
-                    <span class="success"><?php echo $contactFormSuccess; ?></span>
+                    <span class="success"><?php // echo $contactFormSuccess; ?></span>
                     <br><hr><br>
 
                     <!-- submit button -->
@@ -249,7 +249,7 @@
             </p>
 
             <!-- prize form -->
-            <form name="prize" class="prize" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            <form name="prize" class="prize" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <fieldset class="fieldset-prize">
                     <!-- form title -->
                     <legend class="legend-prize">
@@ -260,24 +260,24 @@
 
                     <!-- first name input -->
                     <label for="name">Name</label>
-                    <input placeholder="First Name" type="text" name="pfname" id="name" value="<?php echo $pfname;?>">
-                    <span style="color: var(--color-sec-accent);" class="error-form">* <?php echo $pfnameErr;?></span>
+                    <input placeholder="First Name" type="text" name="pfname" id="name" value="<?php // echo $pfname; ?>">
+                    <span style="color: var(--color-sec-accent);" class="error-form">* <?php // echo $pfnameErr; ?></span>
                    
                     <!-- surname input -->
                     <label style="width: 50px;" for="surname"></label>
-                    <input placeholder="Surname" type="text" name="psurname" id="surname" value="<?php echo $psurname;?>">
-                    <span style="color: var(--color-sec-accent);" class="error-form">* <?php echo $psurnameErr;?></span>
+                    <input placeholder="Surname" type="text" name="psurname" id="surname" value="<?php // echo $psurname; ?>">
+                    <span style="color: var(--color-sec-accent);" class="error-form">* <?php // echo $psurnameErr; ?></span>
                     <br><br>
                    
                     <!-- phone number input -->
                     <label for="phone">Phone</label>
-                    <input placeholder="Phone-Number" type="tel" name="pphone" id="phone" value="<?php echo $pphone;?>">
-                    <span style="color: var(--color-sec-accent);" class="error-form">* <?php echo $pphoneErr;?></span>
+                    <input placeholder="Phone-Number" type="tel" name="pphone" id="phone" value="<?php // echo $pphone; ?>">
+                    <span style="color: var(--color-sec-accent);" class="error-form">* <?php // echo $pphoneErr; ?></span>
                     
                     <br><br>
-                    <span class="error"><?php echo $prizeFormErr; ?></span>
+                    <span class="error"><?php // echo $prizeFormErr; ?></span>
                     <br><br>
-                    <span class="success"><?php echo $prizeFormSuccess; ?></span>
+                    <span class="success"><?php // echo $prizeFormSuccess; ?></span>
                     <br><hr><br>
 
                     <!-- submit button -->
