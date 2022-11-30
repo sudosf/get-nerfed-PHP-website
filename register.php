@@ -1,24 +1,7 @@
-<?php // require('./server/app.php'); ?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="images/icons/logo1.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet"> 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Lato:wght@300&family=M+PLUS+1+Code&display=swap" rel="stylesheet"> 
+<?php 
+	require("components/head.inc.php");
+	// require('./server/app.php');
+?>
 
     <title>get nerfed! | Register </title>
 </head>
@@ -138,45 +121,7 @@
 
     </form>
 
-		<!-- Welcome message display -->
-		<p id="welcome-msg"></p>
-
     <script src="js/script.js"></script>
 
-    <script>
-        // get database connection status
-        // $db->status declared in php file
-        var connStatus = <?= json_encode($db->status) ?>;
-
-        // dispplay status
-        var welcomeMsg = document.getElementById("welcome-msg");
-        welcomeMsg.innerHTML = connStatus + "<br>";
-        welcomeMsg.style.display = "block";
-
-        setTimeout(function(){ 
-            welcomeMsg.style.display = "none";
-        }, 7000); // timeout for status message
-
-		var displayForm = <?= json_encode($displayForm) ?>;
-		if (displayForm) {
-			document.getElementById("form_container").style.display = 'block';
-		}
-
-		var isValidUser = <?= json_encode($isValidUser) ?>;
-		var username = <?= json_encode($username) ?>;
-
-		if (isValidUser) {
-            // window.location.replace("index.php"); // redirect to main page
-			document.getElementById("user_btn_text").textContent = username;
-
-			welcomeMsg.innerHTML = "Welcome " + validUsername;
-			welcomeMsg.style.display = "block";
-
-			setTimeout(function(){ 
-				welcomeMsg.style.display = "none";
-			}, 7000); // timeout for welcome message
-		}
-
-    </script>
 </body>
 </html>

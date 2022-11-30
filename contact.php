@@ -1,29 +1,7 @@
-<?php // require('./server/app.php'); ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Team Members: -->
-<!--    Anil Abraham -->
-<!--    Siyabonga Fortune -->
-<!--    Timothy Williams -->
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="images/icons/logo1.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet"> 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Lato:wght@300&family=M+PLUS+1+Code&display=swap" rel="stylesheet"> 
+<?php 
+    require("components/head.inc.php");
+    // require('./server/app.php'); 
+?>
 
     <title>get nerfed! | Contact</title>
 </head>
@@ -289,32 +267,7 @@
 
     </main>
 
-    <footer class="footer">
-
-        <nav class="nav-main">
-            <div class="title-copyright">
-                <h3 class="logo-title">get nerfed!</h3>
-                <p class="copyright">Copyright &copy; 2022. South Africa</p>
-            </div>
-            
-            <!-- Navbar -->
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.php">Contact us</a></li>
-            </ul>
-
-            <!-- social media section -->
-            <div class="social">
-                <ul class="social-list">
-                  <li><a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook" ></i></a></li>
-                  <li><a target="_blank" href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram"></i></a></li>
-                  <li><a target="_blank" href="https://www.github.com/"><i class="fa fa-github"></i></a></li>
-                  <li><a target="_blank" href="https://twitter.com/?lang=en"><i class="fa fa-twitter"></i></a></li>
-                </ul>
-            </div>
-        </nav>
-    </footer>
+    <?php require("components/footer.inc.php"); ?>
 
     <script src="js/script.js"></script>
 
